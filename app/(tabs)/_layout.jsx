@@ -1,19 +1,35 @@
 import { Tabs } from "expo-router";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
+
+import { BlurView } from "expo-blur";
+import { Home, Paperclip, Search, Settings } from "lucide-react-native";
 
 export default () => {
   return (
     <>
-      <Tabs>
+      <Tabs
+        screenOptions={{
+          tabBarStyle: navBarStyles.navBarWrapper,
+          tabBarShowLabel: false,
+
+          tabBarBackground: () => (
+            <BlurView
+              tint="light"
+              intensity={20}
+              style={StyleSheet.absoluteFillObject}
+            />
+          ),
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <AntDesign name="home" size={24} color="green" />
+                <Home size={24} color="#00AF90" />
               ) : (
-                <AntDesign name="home" size={24} color="black" />
+                <Home size={24} color="#0C0E12" />
               ),
           }}
         />
@@ -23,9 +39,9 @@ export default () => {
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <AntDesign name="paperclip" size={24} color="green" />
+                <Paperclip size={24} color="#00AF90" />
               ) : (
-                <AntDesign name="paperclip" size={24} color="black" />
+                <Paperclip size={24} color="#0C0E12" />
               ),
           }}
         />
@@ -35,9 +51,9 @@ export default () => {
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <AntDesign name="search1" size={24} color="green" />
+                <Search size={24} color="#00AF90" />
               ) : (
-                <AntDesign name="search1" size={24} color="black" />
+                <Search size={24} color="#0C0E12" />
               ),
           }}
         />
@@ -47,9 +63,9 @@ export default () => {
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Feather name="settings" size={24} color="green" />
+                <Settings size={24} color="#00AF90" />
               ) : (
-                <Feather name="settings" size={24} color="black" />
+                <Settings size={24} color="#0C0E12" />
               ),
           }}
         />
@@ -57,3 +73,20 @@ export default () => {
     </>
   );
 };
+
+const navBarStyles = StyleSheet.create({
+  navBarWrapper: {
+    position: "absolute",
+    backgroundColor: "rgba(5, 5, 35, 0.4)",
+    borderRadius: 14,
+    height: 65,
+    overflow: "hidden",
+    elevation: 0,
+    bottom: 25,
+    left: 60,
+    right: 60,
+    border: 0,
+    margin: 0,
+    borderTopWidth: 0,
+  },
+});
