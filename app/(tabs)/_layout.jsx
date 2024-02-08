@@ -34,18 +34,6 @@ export default () => {
           }}
         />
         <Tabs.Screen
-          name="saved"
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Paperclip size={24} color="#00AF90" />
-              ) : (
-                <Paperclip size={24} color="#0C0E12" />
-              ),
-          }}
-        />
-        <Tabs.Screen
           name="search"
           options={{
             headerShown: false,
@@ -54,6 +42,18 @@ export default () => {
                 <Search size={24} color="#00AF90" />
               ) : (
                 <Search size={24} color="#0C0E12" />
+              ),
+          }}
+        />
+        <Tabs.Screen
+          name="saved"
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Paperclip size={24} color="#00AF90" />
+              ) : (
+                <Paperclip size={24} color="#0C0E12" />
               ),
           }}
         />
@@ -79,7 +79,7 @@ const navBarStyles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(5, 5, 35, 0.4)",
     borderRadius: 14,
-    height: 65,
+    padding: 20,
     overflow: "hidden",
     elevation: 0,
     bottom: 25,
