@@ -7,21 +7,19 @@ import * as NavigationBar from "expo-navigation-bar";
 const index = () => {
   useEffect(() => {
     NavigationBar.setPositionAsync("absolute");
-    NavigationBar.setBackgroundColorAsync("#0C0E12");
+    NavigationBar.setBackgroundColorAsync("rgba(0, 0, 0, 0.005)");
   }, []);
 
   return (
-    <SafeAreaView>
-      <View style={homePageStyles.homePageWrapper}>
-        <StatusBar
-          style="light"
-          backgroundColor="#0C0E12"
-          animated={true}
-          translucent={true}
-        />
-        <Text>Home Screen</Text>
-      </View>
-    </SafeAreaView>
+    <View style={homePageStyles.homePageWrapper}>
+      <StatusBar
+        style="light"
+        backgroundColor="#0C0E12"
+        animated={true}
+        translucent={true}
+      />
+      <Text style={homePageStyles.headerText}>Home Screen</Text>
+    </View>
   );
 };
 
@@ -33,6 +31,9 @@ const homePageStyles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  headerText: {
+    color: "#fff",
   },
 });
 

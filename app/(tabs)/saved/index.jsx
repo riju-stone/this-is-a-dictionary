@@ -7,7 +7,7 @@ import * as NavigationBar from "expo-navigation-bar";
 const index = () => {
   useEffect(() => {
     NavigationBar.setPositionAsync("absolute");
-    NavigationBar.setBackgroundColorAsync("#0C0E12");
+    NavigationBar.setBackgroundColorAsync("#ffffff01");
   }, []);
   return (
     <SafeAreaView>
@@ -18,7 +18,7 @@ const index = () => {
           animated={true}
           translucent={true}
         />
-        <Text>Bookmark Screen</Text>
+        <Text style={savedPageStyles.headerText}>Bookmark Screen</Text>
       </View>
     </SafeAreaView>
   );
@@ -32,6 +32,9 @@ const savedPageStyles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  headerText: {
+    color: "#fff",
   },
 });
 

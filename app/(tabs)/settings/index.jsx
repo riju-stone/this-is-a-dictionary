@@ -7,7 +7,7 @@ import * as NavigationBar from "expo-navigation-bar";
 const index = () => {
   useEffect(() => {
     NavigationBar.setPositionAsync("absolute");
-    NavigationBar.setBackgroundColorAsync("#0C0E12");
+    NavigationBar.setBackgroundColorAsync("#ffffff01");
   }, []);
 
   return (
@@ -19,7 +19,7 @@ const index = () => {
           animated={true}
           translucent={true}
         />
-        <Text>Settings Screen</Text>
+        <Text style={settingsPageStyles.headerText}>Settings Screen</Text>
       </View>
     </SafeAreaView>
   );
@@ -33,6 +33,9 @@ const settingsPageStyles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  headerText: {
+    color: "#fff",
   },
 });
 
