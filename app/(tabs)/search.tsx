@@ -1,16 +1,14 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import SearchScreen from "@/screens/search/_layout";
 
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from '@/components/Themed';
-
-export default function SearchLayout()
-{
+export default function SearchLayout() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <SearchScreen />
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
   );
 }
@@ -18,18 +16,8 @@ export default function SearchLayout()
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "#0C0E12"
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: "#fff"
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#24243D",
   },
 });

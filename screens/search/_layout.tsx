@@ -1,13 +1,20 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
 
-const SearchScreen = () =>
-{
-    return (
-        <View>
-            <Text>SearchScreen</Text>
-        </View>
-    )
-}
+const SearchScreen = () => {
+  return (
+    <View>
+      <Text style={styles.title}>Search Screen</Text>
+    </View>
+  );
+};
 
-export default SearchScreen
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+});
+
+export default SearchScreen;

@@ -1,13 +1,20 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
 
-const HomeScreen = () =>
-{
-    return (
-        <View>
-            <Text>HomeScreen</Text>
-        </View>
-    )
-}
+const HomeScreen = () => {
+  return (
+    <View>
+      <Text style={styles.title}>Home Screen</Text>
+    </View>
+  );
+};
 
-export default HomeScreen
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+});
+
+export default HomeScreen;
