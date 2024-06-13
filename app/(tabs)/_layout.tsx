@@ -1,10 +1,15 @@
-import { Fontisto, Octicons } from "@expo/vector-icons";
+import React from "react";
 import { Tabs } from "expo-router";
 import { Platform, StyleSheet } from "react-native";
 
 import { BlurView } from "expo-blur";
 
 import Colors from "@/constants/Colors";
+
+import HomeIcon from "@/assets/icons/home.svg";
+import SearchIcon from "@/assets/icons/search.svg";
+import BookmarkIcon from "@/assets/icons/bookmark.svg";
+import SettingsIcon from "@/assets/icons/settings.svg";
 
 export default function TabLayout() {
   return (
@@ -31,9 +36,9 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Octicons name="home" size={24} color={Colors.focusedColor} />
+              <HomeIcon name="home" color={Colors.focusedColor} />
             ) : (
-              <Octicons name="home" size={24} color={Colors.unfocusedColor} />
+              <HomeIcon name="home" color={Colors.unfocusedColor} />
             ),
         }}
       />
@@ -42,9 +47,9 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Octicons name="search" size={24} color={Colors.focusedColor} />
+              <SearchIcon name="search" color={Colors.focusedColor} />
             ) : (
-              <Octicons name="search" size={24} color={Colors.unfocusedColor} />
+              <SearchIcon name="search" color={Colors.unfocusedColor} />
             ),
         }}
       />
@@ -53,17 +58,9 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Fontisto
-                name="paperclip"
-                size={24}
-                color={Colors.focusedColor}
-              />
+              <BookmarkIcon name="paperclip" color={Colors.focusedColor} />
             ) : (
-              <Fontisto
-                name="paperclip"
-                size={24}
-                color={Colors.unfocusedColor}
-              />
+              <BookmarkIcon name="paperclip" color={Colors.unfocusedColor} />
             ),
         }}
       />
@@ -72,9 +69,9 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Octicons name="gear" size={24} color={Colors.focusedColor} />
+              <SettingsIcon name="gear" color={Colors.focusedColor} />
             ) : (
-              <Octicons name="gear" size={24} color={Colors.unfocusedColor} />
+              <SettingsIcon name="gear" color={Colors.unfocusedColor} />
             ),
         }}
       />
@@ -90,9 +87,9 @@ const styles = StyleSheet.create({
     height: 80,
     paddingTop: 20,
     paddingBottom: 20,
-    marginLeft: 40,
-    marginRight: 40,
-    marginBottom: 30,
+    marginLeft: "20%",
+    marginRight: "20%",
+    marginBottom: 20,
     borderTopWidth: 0,
     overflow: "hidden",
     borderRadius: 20,
@@ -101,9 +98,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(42, 42, 72, 0.8)",
     elevation: 10,
-    paddingTop: 20,
-    marginLeft: 40,
-    marginRight: 40,
+    paddingTop: 25,
+    marginLeft: "20%",
+    marginRight: "20%",
     marginBottom: 30,
     borderTopWidth: 0,
     overflow: "hidden",

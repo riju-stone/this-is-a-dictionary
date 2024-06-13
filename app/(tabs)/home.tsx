@@ -1,13 +1,13 @@
-import { Platform, View, Text } from "react-native";
-import { StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import CardComponent from "@/components/card/card";
+import CardStackComponent from "@/components/card-stack/card-stack";
+import Colors from "@/constants/Colors";
 
 export default function HomeLayout() {
   return (
-    <View style={styles.container}>
-      {/* <HomeScreen /> */}
-      <CardComponent />
+    <View style={styles.homeContainer}>
+      <Text style={styles.homeContainerTitle}>Word of the Day</Text>
+      <CardStackComponent />
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>
@@ -15,11 +15,18 @@ export default function HomeLayout() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  homeContainer: {
     display: "flex",
-    justifyContent: "flex-end",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#24243D"
+    backgroundColor: Colors.background,
+  },
+  homeContainerTitle: {
+    position: "absolute",
+    top: "8%",
+    fontSize: 50,
+    fontWeight: "800",
+    color: Colors.text,
   },
 });
