@@ -12,6 +12,7 @@ const CardStackComponent = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   cardStackContainer: {
     width: "100%",
