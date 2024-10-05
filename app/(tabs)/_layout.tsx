@@ -82,7 +82,7 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   tabBarAndroid: {
     position: "absolute",
-    backgroundColor: "rgba(36, 36, 61, 0.6)",
+    backgroundColor: "rgba(42, 42, 72, 0.8)",
     elevation: 0,
     height: 80,
     paddingTop: 20,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     marginLeft: "18%",
     marginRight: "18%",
-    marginBottom: 20,
+    marginBottom: 30,
     borderTopWidth: 0,
     overflow: "hidden",
     borderRadius: 20,

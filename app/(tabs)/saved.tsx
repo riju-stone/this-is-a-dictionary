@@ -1,11 +1,11 @@
-import { Platform, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 export default function SavedLayout() {
   return (
     <View style={styles.container}>
-
+      <Text>Bookmarks Screen</Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>
