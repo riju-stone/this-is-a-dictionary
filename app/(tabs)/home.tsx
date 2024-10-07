@@ -7,7 +7,7 @@ export default function HomeLayout() {
   return (
     <View style={styles.homeContainer}>
       <Text style={styles.homeContainerTitle}>Word of the Day</Text>
-      <CardStackComponent />
+      <CardStackComponent maxVisibleItems={3} />
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>

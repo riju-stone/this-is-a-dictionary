@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 export default function SettingsLayout() {
   return (
     <View style={styles.container}>
-
+      <Text>Settings</Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>

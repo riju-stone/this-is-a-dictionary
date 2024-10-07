@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 export default function SearchLayout() {
   return (
     <View style={styles.container}>
-
+      <Text>Search</Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>

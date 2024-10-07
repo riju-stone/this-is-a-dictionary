@@ -26,7 +26,7 @@ const cardData = [
   },
 ];
 
-const CardStackComponent = () => {
+const CardStackComponent = ({ maxVisibleItems }) => {
   const animatedValue = useSharedValue(0);
   const currentIndex = useSharedValue(0);
   const previousIndex = useSharedValue(0);
@@ -43,6 +43,7 @@ const CardStackComponent = () => {
             animatedValue={animatedValue}
             cardData={data}
             dataLength={cardData.length}
+            maxVisibleItems={maxVisibleItems}
           />
         );
       })}

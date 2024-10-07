@@ -26,6 +26,7 @@ type CardProps = {
   stackPos: number;
   cardData: CardData;
   dataLength: number;
+  maxVisibleItems: number;
 };
 
 const CardComponent = (props: CardProps) => {
@@ -34,6 +35,11 @@ const CardComponent = (props: CardProps) => {
       props.animatedValue.value,
       [props.stackPos - 1, props.stackPos, props.stackPos + 1],
       [-42, 1, 42],
+    );
+    const translateY2 = interpolate(
+      props.animatedValue.value,
+      [props.stackPos - 1, props.stackPos, props.stackPos + 1],
+      [-200, 1, 200],
     );
     const scale = interpolate(
       props.animatedValue.value,
@@ -46,34 +52,53 @@ const CardComponent = (props: CardProps) => {
       [1, 1, 0],
     );
     return {
-      transform: [{ translateY }, { scale }],
+      transform: [
+        {
+          translateY:
+            props.stackPos === props.previousIndex.value
+              ? translateY2
+              : translateY,
+        },
+        { scale },
+      ],
+      opacity:
+        props.stackPos < props.currentIndex.value + props.maxVisibleItems - 1
+          ? opacity
+          : props.stackPos ==
+              props.currentIndex.value + props.maxVisibleItems - 1
+            ? withTiming(1)
+            : withTiming(0),
     };
   });
 
   return (
     <FlingGestureHandler
-      key={"right"}
-      direction={Directions.RIGHT}
+      key={"up"}
+      direction={Directions.UP}
       onHandlerStateChange={(event) => {
         if (event.nativeEvent.state === State.END) {
-          props.animatedValue.value = withTiming(
-            (props.currentIndex.value += 1),
-          );
+          if (props.currentIndex.value !== 0) {
+            props.animatedValue.value = withTiming(
+              (props.currentIndex.value -= 1),
+            );
 
-          props.previousIndex.value = props.currentIndex.value - 1;
+            props.previousIndex.value = props.currentIndex.value - 1;
+          }
         }
       }}
     >
       <FlingGestureHandler
-        key={"left"}
-        direction={Directions.LEFT}
+        key={"down"}
+        direction={Directions.DOWN}
         onHandlerStateChange={(event) => {
           if (event.nativeEvent.state === State.END) {
-            props.animatedValue.value = withTiming(
-              (props.currentIndex.value += 1),
-            );
+            if (props.currentIndex.value !== props.dataLength - 1) {
+              props.animatedValue.value = withTiming(
+                (props.currentIndex.value += 1),
+              );
 
-            props.previousIndex.value = props.currentIndex.value - 1;
+              props.previousIndex.value = props.currentIndex.value;
+            }
           }
         }}
       >
@@ -86,7 +111,9 @@ const CardComponent = (props: CardProps) => {
             animatedStyle,
           ]}
         >
-          <Text>Word Details</Text>
+          <Text>{props.cardData.word}</Text>
+          <Text>{props.cardData.pronounciation}</Text>
+          <Text>{props.cardData.meaning}</Text>
         </Animated.View>
       </FlingGestureHandler>
     </FlingGestureHandler>
@@ -98,8 +125,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: "80%",
     width: "90%",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: 20,
     backgroundColor: Colors.primaryColor,
     padding: 10,
     shadowColor: "#000",

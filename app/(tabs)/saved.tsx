@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 export default function SavedLayout() {
   return (
     <View style={styles.container}>
-      <Text>Bookmarks Screen</Text>
+      <Text>Bookmarks</Text>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style="light" />
     </View>
